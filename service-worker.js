@@ -1,19 +1,24 @@
 const CACHE_NAME = 'calculator-v1';
+const REPO_NAME = '/calculator'; // Change this to match your repository name
+
 const ASSETS_TO_CACHE = [
-  './',
-  './index.html',
-  './style.css',
-  './index.js',
-  './manifest.json',
-  './icons/icon-192x192.png',
-  './icons/icon-512x512.png'
+  `${REPO_NAME}/`,
+  `${REPO_NAME}/index.html`,
+  `${REPO_NAME}/style.css`,
+  `${REPO_NAME}/index.js`,
+  `${REPO_NAME}/manifest.json`,
+  `${REPO_NAME}/icons/icon-192x192.png`,
+  `${REPO_NAME}/icons/icon-512x512.png`
 ];
 
 // Install event
 self.addEventListener('install', (event) => {
+  console.log('Service Worker: Installing....');
+  
   event.waitUntil(
     caches.open(CACHE_NAME)
       .then((cache) => {
+        console.log('Service Worker: Caching Files');
         return cache.addAll(ASSETS_TO_CACHE);
       })
   );
@@ -21,6 +26,7 @@ self.addEventListener('install', (event) => {
 
 // Activate event
 self.addEventListener('activate', (event) => {
+  console.log('Service Worker: Activated');
   event.waitUntil(
     caches.keys().then((cacheNames) => {
       return Promise.all(
@@ -42,7 +48,6 @@ self.addEventListener('fetch', (event) => {
         return response || fetch(event.request);
       })
       .catch(() => {
-        // Return a fallback response for failed fetches
         return new Response('Offline content here');
       })
   );
