@@ -1,14 +1,74 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React</title>
-    <script crossorigin src="/assets/index-D-COXTkD.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-Csu3NVIW.css">
-  </head>
-  <body>
-    <div id="root"></div>
-  </body>
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Calculator</title>
+        <link rel="stylesheet" href="style.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="theme-color" content="#5F9EA0">
+        <link rel="manifest" href="manifest.json">
+        <link rel="apple-touch-icon" href="icons/icon-192x192.png">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta name="apple-mobile-web-app-title" content="Calculator">
+    </head>
+    <body>
+        <div class="container">
+            <div class="calculator">
+                <form>
+                    <div>
+                        <input type="text" name="display" style="width:220px; text-align: right; " id="expression" readonly/>
+                    </div>
+                    <div>
+                        <input type="button" value="(" onclick="display.value += '('"/>
+                        <input type="button" value="AC" onclick="display.value = ''"/>
+                        <input type="button" value="DE" onclick="display.value = display.value.slice(0,-1)"/>
+                        <input type="button" value="/" onclick="display.value += '/'"/>
+                        <input type="button" value="*" onclick="display.value += '*'"/>
+                    </div>
+                    <div>
+                        <input type="button" value=")" onclick="display.value += ')'"/>
+                        <input type="button" value="7" onclick="display.value += '7'"/>
+                        <input type="button" value="8" onclick="display.value += '8'"/>
+                        <input type="button" value="9" onclick="display.value += '9'"/>
+                        <input type="button" value="-" onclick="display.value += '-'"/>
+                    </div>
+                    <div>
+                        <input type="button" value="sin" onclick="display.value += 'sin('"/>
+                        <input type="button" value="4" onclick="display.value += '4'"/>
+                        <input type="button" value="5" onclick="display.value += '5'"/>
+                        <input type="button" value="6" onclick="display.value += '6'"/>
+                        <input type="button" value="+" onclick="display.value += '+'"/>
+                    </div>
+                    <div>
+                        <input type="button" value="cos" onclick="display.value += 'cos('"/>
+                        <input type="button" value="1" onclick="display.value += '1'"/>
+                        <input type="button" value="2" onclick="display.value += '2'"/>
+                        <input type="button" value="3" onclick="display.value += '3'"/>
+                        <input type="button" value="." onclick="display.value += '.'"/>
+                    </div>   
+                    <div>
+                        <input type="button" value="tan" onclick="display.value += 'tan('"/>
+                        <input type="button" value="0" onclick="display.value += '0'"/>
+                        <input type="button" value="00" onclick="display.value += '00'"/>
+                        <input type="button" value="=" style="width: 86px;" onclick="Evaluate()"/>
+                    </div>            
+                </form>
+            </div>
+        </div> 
+        <script src="index.js"></script>
+        <script>
+            // Register service worker
+            if ('serviceWorker' in navigator) {
+                window.addEventListener('load', () => {
+                    navigator.serviceWorker.register('/service-worker.js')
+                        .then((registration) => {
+                            console.log('ServiceWorker registration successful');
+                        })
+                        .catch((err) => {
+                            console.log('ServiceWorker registration failed: ', err);
+                        });
+                });
+            }
+        </script>
+    </body>
 </html>
