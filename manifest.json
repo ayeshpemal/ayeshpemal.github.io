@@ -1,24 +1,13 @@
 {
-  "name": "Scientific Calculator",
-  "short_name": "Calculator",
-  "description": "A scientific calculator with trigonometric functions",
-  "start_url": "/",
-  "scope": "/",
-  "display": "standalone",
-  "background_color": "#5F9EA0",
-  "theme_color": "#5F9EA0",
-  "icons": [
-    {
-      "src": "/icons/icon-192x192.png",
-      "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "any maskable"
-    },
-    {
-      "src": "/icons/icon-512x512.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "any maskable"
-    }
-  ]
+    "name": "Scientific Calculator",
+    "short_name": "Calculator",
+    "description": "A scientific calculator",
+    "start_url": "/calculator/", // Important for GitHub Pages
+    "scope": "/calculator/",     // VERY IMPORTANT
+    "display": "standalone",
+    "background_color": "#5F9EA0",
+    "theme_color": "#5F9EA0",
+    "icons": [
+        // ... (icons as provided in previous response)
+    ]
 }
