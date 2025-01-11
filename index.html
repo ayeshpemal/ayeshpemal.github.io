@@ -1,62 +1,14 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculator</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="manifest" href="manifest.json">
-    <meta name="theme-color" content="#5F9EA0">
-    <link rel="apple-touch-icon" href="icons/icon-192x192.png">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="apple-mobile-web-app-title" content="Calculator">
-</head>
-<body>
-    <div class="container">
-        <div class="calculator">
-            <input type="text" id="expression" readonly>
-            <div class="buttons">
-                <button onclick="addToDisplay('(')">(</button>
-                <button onclick="clearDisplay()">AC</button>
-                <button onclick="deleteLast()">DE</button>
-                <button onclick="addToDisplay('/')">/</button>
-                <button onclick="addToDisplay('*')">*</button>
-                <button onclick="addToDisplay('7')">7</button>
-                <button onclick="addToDisplay('8')">8</button>
-                <button onclick="addToDisplay('9')">9</button>
-                <button onclick="addToDisplay('-')">-</button>
-                <button onclick="addToDisplay('4')">4</button>
-                <button onclick="addToDisplay('5')">5</button>
-                <button onclick="addToDisplay('6')">6</button>
-                <button onclick="addToDisplay('+')">+</button>
-                <button onclick="addToDisplay('1')">1</button>
-                <button onclick="addToDisplay('2')">2</button>
-                <button onclick="addToDisplay('3')">3</button>
-                <button onclick="addToDisplay('.')">.</button>
-                <button onclick="addToDisplay('0')">0</button>
-                <button onclick="addToDisplay('00')">00</button>
-                <button onclick="calculate()" class="equals">=</button>
-                <button onclick="addToDisplay('sin(')">sin</button>
-                <button onclick="addToDisplay('cos(')">cos</button>
-                <button onclick="addToDisplay('tan(')">tan</button>
-            </div>
-        </div>
-    </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.8.0/math.js"></script>
-    <script src="script.js"></script>
-    <script>
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/calculator/service-worker.js', {scope: '/calculator/'}) // Correct scope for GitHub Pages
-                    .then(registration => {
-                        console.log('Service Worker registered:', registration);
-                    })
-                    .catch(error => {
-                        console.error('Service Worker registration failed:', error);
-                    });
-            });
-        }
-    </script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite + React</title>
+    <script crossorigin src="/assets/index-D-COXTkD.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-Csu3NVIW.css">
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
 </html>
